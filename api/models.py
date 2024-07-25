@@ -15,7 +15,7 @@ class Product(models.Model):
 class Services(models.Model):
     description_ser = models.CharField(max_length = 300)
     highestAmount = models.DecimalField(max_digits = 10, decimal_places=2)
-    location = models.CharField()
+    location = models.CharField(max_length=50)
     lowestAmount = models.DecimalField(max_digits = 10, decimal_places=2)
     serviceCategory = models.CharField(max_length = 50)
     serviceName = models.CharField(max_length = 50)

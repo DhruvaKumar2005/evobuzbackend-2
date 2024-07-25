@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS","localhost,127.0.0.1").split(" ")
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -86,13 +86,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'evobuz-backend',
-        'USER': 'postgres',
-        'PASSWORD':'12345678',
-        'HOST':'localhost'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite"
     }
 }
+#postgresql://evobuzbackend_attempt_4_user:6P2pfmR1OOA2XxYPXiCaA1lq9or9qRnt@dpg-cqgtcfcs1f4s73bfbrr0-a.oregon-postgres.render.com/evobuzbackend_attempt_4
 database_url = os.environ.get("DATABASE_URL")
 DATABASES["default"] = dj_database_url.parse(database_url)
 
